@@ -1,13 +1,23 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+<!DOCTYPE html>
+<html>
 <body>
-  <h1>Advice Generator by Joe</h1>
-  <p>This is line 1</p1>
-  <p>This is line 2</p1>
-  <p>This is line 3</p1>
+    <form>
+        Keyword:<br>
+        <input type="text" name="keyword" onkeyup="callREST()"><br>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        function callREST() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.adviceslip.com/advice", true);
+            xhttp.send();
+        }
+    </script>
 </body>
 </html>
