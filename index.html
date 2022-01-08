@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-    
+    <form>
+        Keyword:<br>
+        <input type="text" name="keyword" onkeyup="callREST()"><br>
+    </form>
+    <div id="response"></div>
 
     <script>
         function callREST() {
